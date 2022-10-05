@@ -37,3 +37,14 @@ jobs:
       
       - name: Build
         run: npm run build:prod
+
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
+          output-file: 'false'
+      
+      - name: Deploy
+        run: |
+          npm run deploy
