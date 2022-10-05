@@ -1,0 +1,52 @@
+
+
+<div class="px-4 py-8 md:px-6 lg:px-8 w-10 mx-auto">
+    <p-carousel [value]="products.slice(0,20)" styleClass="mb-5" [numVisible]="10" [numScroll]="1" [circular]="false"
+        [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
+        <ng-template pTemplate="header">
+            <div class="text-900 font-bold text-6xl mb-4 text-center">Most Popular.</div>
+        </ng-template>
+        <ng-template let-product pTemplate="item">
+            <div class="product-item" (click)="show(product)">
+                <div class="product-item-content">
+                    <img [alt]="product.title"
+                                [src]="'https://www.themoviedb.org/t/p/w600_and_h900_bestv2' + product.poster_path">
+                    <div class="mt-2 text-sm text-900 font-bold">{{product.title}}</div>
+                    <div class="mt-1 text-sm text-500">{{product.release_date}}</div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+    <p-carousel [value]="products.slice(21,40)" styleClass="mb-5" [numVisible]="10" [numScroll]="1" [circular]="false"
+        [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
+        <ng-template pTemplate="header">
+            <div class="text-900 font-bold text-6xl mb-4 text-center">Most Watched.</div>
+        </ng-template>
+        <ng-template let-product pTemplate="item">
+            <div class="product-item" (click)="show(product)">
+                <div class="product-item-content">
+                    <img [alt]="product.title"
+                                [src]="'https://www.themoviedb.org/t/p/w600_and_h900_bestv2' + product.poster_path">
+                    <div class="mt-2 text-sm text-900 font-bold">{{product.title}}</div>
+                    <div class="mt-1 text-sm text-500">{{product.release_date}}</div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+    <p-carousel [value]="products.slice(41,60)" styleClass="mb-5" [numVisible]="10" [numScroll]="1" [circular]="false"
+        [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
+        <ng-template pTemplate="header">
+            <div class="text-900 font-bold text-6xl mb-4 text-center">New Release.</div>
+        </ng-template>
+        <ng-template let-product pTemplate="item">
+            <div class="product-item" (click)="show(product)">
+                <div class="product-item-content">
+                    <img [alt]="product.title"
+                                [src]="'https://www.themoviedb.org/t/p/w600_and_h900_bestv2' + product.poster_path">
+                    <div class="mt-2 text-sm text-900 font-bold">{{product.title}}</div>
+                    <div class="mt-1 text-sm text-500">{{product.release_date}}</div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

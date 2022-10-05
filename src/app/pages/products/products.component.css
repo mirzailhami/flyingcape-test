@@ -1,0 +1,13 @@
+.product-item {
+    cursor: pointer;
+}
+
+.product-item .product-item-content {
+  margin: 0.6rem;
+  border-radius: 3px;
+}
+
+.product-item .product-item-content img{
+  width: 155px;
+  border-radius: 8px;
+}

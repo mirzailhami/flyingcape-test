@@ -1,0 +1,49 @@
+<div class="flex">
+    <div id="preview">
+        <p-blockUI [blocked]="auth.user && auth.user.subscribed ? false : true">
+            <i class="pi pi-lock" style="font-size: 5rem"></i>
+        </p-blockUI>
+        <iframe width="854" height="480" scrolling="no"
+            [src]="config.data.youtube"
+            [title]="config.data.title" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+    <div class="embed-panel px-3">
+        <div class="mb-3">
+            <p-tag styleClass="mr-2" icon="pi pi-star-fill" severity="warning" [value]="config.data.vote_average">
+            </p-tag>
+            <p-tag styleClass="mr-2" icon="pi pi-check-circle" severity="success"
+                [value]="config.data.certification"></p-tag>
+            <p-tag styleClass="mr-2" icon="pi pi-language" severity="info" [value]="config.data.original_language">
+            </p-tag>
+        </div>
+        <div class="mb-3">{{config.data.overview}}</div>
+        <div class="mb-3">
+            <div class="text-sm uppercase text-500 mb-2">genre</div>
+            <div>
+                <p-chip styleClass="mr-2 mb-2 text-sm" *ngFor="let g of config.data.genres" [label]="g"></p-chip>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="text-sm uppercase text-500 mb-2">Directors</div>
+            <div>
+                <p-chip styleClass="mr-2 mb-2 text-sm" *ngFor="let p of config.data.directors" [label]="p.name">
+                </p-chip>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="text-sm uppercase text-500 mb-2">writers</div>
+            <div>
+                <p-chip styleClass="mr-2 mb-2 text-sm" *ngFor="let p of config.data.writers" [label]="p.name">
+                </p-chip>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="text-sm uppercase text-500 mb-2">Cast</div>
+            <div>
+                <p-chip styleClass="mr-2 mb-2 text-sm" *ngFor="let p of config.data.cast" [label]="p.name"></p-chip>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+#preview {
+    background-color: black;
+    flex: 1;
+    flex-basis: 0.000000001px;
+    width: 854px;
+    height: 480px;
+}
+
+.embed-panel{
+    min-width: 426px;
+    flex-direction: column;
+    display: flex;
+    background-color: #fffffffa;
+    height: 480px;
+    padding-top: 85px;
+    overflow: auto;
+}
