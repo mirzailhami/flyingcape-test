@@ -11,7 +11,7 @@ import {MessageService} from 'primeng/api';
   styleUrls: ['./login.component.css'],
   providers: [MessageService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   signup = false;
   loginForm = this.fb.group({
     email: ['', Validators.required],
@@ -25,9 +25,6 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder, private auth: AuthService, public ref: DynamicDialogRef, private messageService: MessageService) { }
-
-  ngOnInit() {
-  }
 
   submitLogin() {
     const authUser = users.find(t => (t.email === this.loginForm.value.email && t.password === this.loginForm.value.password));

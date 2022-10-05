@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ModalTrailerComponent } from 'src/app/components/modal-trailer/modal-trailer.component';
 
@@ -9,7 +9,7 @@ import { ModalTrailerComponent } from 'src/app/components/modal-trailer/modal-tr
   styleUrls: ['./products.component.css'],
   providers: [DialogService]
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
   products: any[] = [];
   responsiveOptions;
   ref!: DynamicDialogRef;

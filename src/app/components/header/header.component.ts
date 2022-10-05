@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { LoginComponent } from 'src/app/pages/login/login.component';
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.scss'],
   providers: [DialogService]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnDestroy {
   ref!: DynamicDialogRef;
 
   items = [{
@@ -37,9 +37,6 @@ export class HeaderComponent implements OnInit {
   }];
 
   constructor(public dialogService: DialogService, public auth: AuthService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   login() {
     this.ref = this.dialogService.open(LoginComponent, {

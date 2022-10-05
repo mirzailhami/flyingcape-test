@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { LoginComponent } from './pages/login/login.component';
@@ -9,7 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
   styleUrls: [ './app.component.scss' ],
   providers: [DialogService, MessageService]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   ref!: DynamicDialogRef;
 
   constructor(private primengConfig: PrimeNGConfig, public dialogService: DialogService) {}
