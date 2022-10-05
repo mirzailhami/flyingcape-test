@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
-    "build:prod": "ng build"
+    "build:prod": "ng build",
+    "deploy": "ng deploy --base-href=/flyingcape-test/"
   },
   "private": true,
   "dependencies": {
