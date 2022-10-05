@@ -3,19 +3,15 @@
 <ng-container *ngIf="!signup; else register">
     <div class="text-900 text-4xl font-bold mb-6">Sign In</div>
     <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" class="m-0">
-        <span class="p-float-label mb-4">
-            <input autocomplete id="email1" formControlName="email" type="text" pInputText class="w-full p-inputtext-lg">
-            <label for="email1" class="block text-500 font-medium">Email</label>
-            <small *ngIf="loginForm.controls.email.invalid" class="p-error block mt-2">Email is invalid.</small>
-        </span>
+        <label for="email1" class="block text-500 font-medium mb-2">Email</label>
+        <input placeholder="john@doe.com" id="email1" formControlName="email" type="text" pInputText class="w-full p-inputtext-lg">
+        <small *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid" class="p-error block mt-2">Email is invalid.</small>
 
-        <span class="p-float-label mb-4 mt-5">
-            <input autocomplete id="password1" formControlName="password" type="password" pInputText class="w-full p-inputtext-lg">
-            <label for="password1" class="block text-500 font-medium">Password</label>
-            <small *ngIf="loginForm.controls.password.invalid" class="p-error block mt-2">Password is required.</small>
-        </span>
+        <label for="password1" class="block text-500 font-medium mb-2 mt-4">Password</label>
+        <input autocomplete id="password1" formControlName="password" type="password" pInputText class="w-full p-inputtext-lg">
+        <small *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid" class="p-error block mt-2">Password is required.</small>
 
-        <div class="flex align-items-center justify-content-end">
+        <div class="flex align-items-center justify-content-end mt-4">
             <a (click)="signup=true" class="font-medium no-underline ml-2 text-blue-300 hover:text-blue-500 text-right cursor-pointer">Don`t
                 have an account, yet?</a>
         </div>
@@ -27,17 +23,17 @@
     <div class="text-900 text-4xl font-bold mb-6">Sign Up</div>
 
     <form [formGroup]="signupForm" (ngSubmit)="submitSignup()" class="m-0">
-        <label for="em" class="block text-500 font-medium">Email</label>
-        <input id="em" formControlName="email" type="text" pInputText class="w-full p-inputtext-lg">
-        <small *ngIf="signupForm.controls.email.invalid" class="p-error block">Email is invalid.</small>
+        <label for="em" class="block text-500 font-medium mb-2">Email</label>
+        <input id="em" placeholder="john@doe.com" formControlName="email" type="text" pInputText class="w-full p-inputtext-lg">
+        <small *ngIf="signupForm.controls.email.touched && signupForm.controls.email.invalid" class="p-error block mt-2">Email is invalid.</small>
 
-        <label for="phone" class="block text-500 font-medium mt-4">Phone</label>
+        <label for="phone" class="block text-500 font-medium mb-2 mt-4">Phone</label>
         <p-inputMask id="phone" formControlName="phone" mask="(62) 999-999-9999" placeholder="(62) 999-999-9999" styleClass="w-full p-inputtext-lg"></p-inputMask>
-        <small *ngIf="signupForm.controls.phone.invalid" class="p-error block">Phone is required.</small>
+        <small *ngIf="signupForm.controls.phone.touched && signupForm.controls.phone.invalid" class="p-error block mt-2">Phone is required.</small>
 
-        <label for="pw" class="block text-500 font-medium mt-4">Password</label>
-        <input id="pw" formControlName="password" type="password" pInputText class="w-full p-inputtext-lg">
-        <small *ngIf="signupForm.controls.password.invalid" class="p-error block">Password is required.</small>
+        <label for="pw" class="block text-500 font-medium mb-2 mt-4">Password</label>
+        <input id="pw" autocomplete formControlName="password" type="password" pInputText class="w-full p-inputtext-lg">
+        <small *ngIf="signupForm.controls.password.touched && signupForm.controls.password.invalid" class="p-error block mt-2">Password is required.</small>
 
         <div class="flex align-items-center justify-content-end mt-4">
             <a (click)="signup=false" class="font-medium no-underline ml-2 text-blue-300 hover:text-blue-500 text-right cursor-pointer">Already have an account?</a>
