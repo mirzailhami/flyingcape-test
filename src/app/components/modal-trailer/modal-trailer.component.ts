@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-modal-trailer',
   templateUrl: './modal-trailer.component.html',
-  styleUrls: ['./modal-trailer.component.scss'],
-  providers: [DynamicDialogRef, DynamicDialogConfig]
+  styleUrls: ['./modal-trailer.component.scss']
 })
 export class ModalTrailerComponent implements OnInit {
+  youtube: any;
 
-  constructor(private ref: DynamicDialogRef, public config: DynamicDialogConfig, public _sanitizer: DomSanitizer, public auth: AuthService) { }
+  constructor(public config: DynamicDialogConfig, public _sanitizer: DomSanitizer, public auth: AuthService) { }
 
   ngOnInit(): void {
     console.log(this.config.data);
-    this.config.data = {...this.config.data, youtube: this._sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube-nocookie.com/embed/${this.config.data?.trailer_yt}`)};
+    this.youtube = this._sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube-nocookie.com/embed/${this.config.data?.trailer_yt}`);
   }
 
 }
