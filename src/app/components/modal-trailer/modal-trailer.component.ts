@@ -6,15 +6,16 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-modal-trailer',
   templateUrl: './modal-trailer.component.html',
-  styleUrls: ['./modal-trailer.component.scss']
+  styleUrls: ['./modal-trailer.component.scss'],
+  providers: [DynamicDialogRef, DynamicDialogConfig]
 })
 export class ModalTrailerComponent implements OnInit {
 
-  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, public _sanitizer: DomSanitizer, public auth: AuthService) { }
+  constructor(private ref: DynamicDialogRef, public config: DynamicDialogConfig, public _sanitizer: DomSanitizer, public auth: AuthService) { }
 
   ngOnInit(): void {
     console.log(this.config.data);
-    this.config.data.youtube = this._sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube-nocookie.com/embed/${this.config.data.trailer_yt}`);
+    this.config.data = {...this.config.data, youtube: this._sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube-nocookie.com/embed/${this.config.data?.trailer_yt}`)};
   }
 
 }
